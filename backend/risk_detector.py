@@ -1,6 +1,6 @@
 from typing import List, Optional, Dict
-from .models import SardarProject, RiskDetectorResponse
-from .similarity_search import ProjectAnalyzer
+from models import SardarProject, RiskDetectorResponse
+from similarity_search import ProjectAnalyzer
 import numpy as np
 
 

@@ -1,5 +1,5 @@
 from typing import Dict, List, Optional
-from .models import SituationType
+from models import SituationType
 
 
 # Tone definitions

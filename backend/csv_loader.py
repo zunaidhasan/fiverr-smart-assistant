@@ -1,7 +1,7 @@
 import csv
 import os
 from typing import List, Tuple
-from .models import SardarProject
+from models import SardarProject
 
 
 def load_projects(csv_path: str) -> Tuple[List[SardarProject], dict]:

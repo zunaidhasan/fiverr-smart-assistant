@@ -1,13 +1,13 @@
 import random
 from typing import List, Optional
-from .models import SardarProject, SituationType, SmartReplyResponse
-from .templates import (
+from models import SardarProject, SituationType, SmartReplyResponse
+from templates import (
     TEMPLATE_REGISTRY,
     detect_situation_type,
     get_templates_for_situation,
     TONES,
 )
-from .similarity_search import ProjectSimilaritySearch, ProjectAnalyzer
+from similarity_search import ProjectSimilaritySearch, ProjectAnalyzer
 import numpy as np
 
 

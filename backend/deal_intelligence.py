@@ -1,8 +1,8 @@
 import numpy as np
 from typing import List, Optional
 from collections import defaultdict, Counter
-from .models import SardarProject, DashboardMetrics, CRMEntry, CRMResponse
-from .similarity_search import ProjectAnalyzer
+from models import SardarProject, DashboardMetrics, CRMEntry, CRMResponse
+from similarity_search import ProjectAnalyzer
 
 
 class DealIntelligence:
