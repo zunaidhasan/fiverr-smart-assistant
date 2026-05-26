@@ -1,22 +1,19 @@
-FROM python:3.11-slim
+FROM python:3.11
 
 WORKDIR /app
 
-# Install dependencies
-COPY backend/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install dependencies first (leverages Docker layer caching)
+COPY backend/requirements.txt backend/
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
-# Copy project files (keeps the same structure the code expects)
+# Copy application code
 COPY backend/ backend/
 COPY sample_data/ sample_data/
 
-# The code auto-loads the CSV from: /app/sample_data/sardarit_projects_database.csv
+# The CSV auto-loads from: /app/sample_data/sardarit_projects_database.csv
+# (resolved by main.py as ../sample_data/ relative to backend/)
 
 EXPOSE 8000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"
-
-# Start FastAPI server
+# PORT env is set by Render or defaults to 8000 in main.py
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -4,8 +4,10 @@ from typing import Optional, List
 from fastapi import FastAPI, UploadFile, File, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-# Add backend to path
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Ensure the backend directory is in the path for reliable imports
+_backend_dir = os.path.dirname(os.path.abspath(__file__))
+if _backend_dir not in sys.path:
+    sys.path.insert(0, _backend_dir)
 
 from models import (
     SmartReplyRequest, SmartReplyResponse,
@@ -326,4 +328,5 @@ async def health_check():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", "8000"))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
