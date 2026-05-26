@@ -1,0 +1,18 @@
+,,,,,
+"Total Projects in Database",,6,,,
+"High Quality Projects",,3,,,
+"Medium Quality",,2,,,
+"Low Quality",,1,,,
+"Strongest Categories",,,"Agency, E-commerce, Education",,
+"Top Recommended Projects",,"1) Web Development",,,
+"• https://agency-alpha.com [Alpha Agency | Score: 95]",,,,,
+"• https://shopify-store.com [Shopify Store | Score: 92]",,,,,
+"• https://edu-learn.com [Edu Learn Platform | Score: 88]",,,,,
+,,,,,
+Website URL,Category,Used Stack,Website Features,Brief Description,Main Technology,Quality,Keywords,Use_Case,Strengths,Best_For,Match_Score_Potential,Example_Use_Case
+https://agency-alpha.com,Agency,"React, Node.js, PostgreSQL",Responsive Design,Authentication/Login,Booking System,Full-service digital agency website,"React / Next.js Custom",High,"web agency, portfolio, services","Showcase services and attract clients","Modern design, fast performance, SEO optimized","Creative agencies needing a strong online presence",95,"A creative agency wanted a modern site to showcase work"
+https://shopify-store.com,E-commerce,"Shopify, Liquid, Alpine.js",Shopping Cart,Payment Integration,SEO Optimization,Shopify-based e-commerce store,"Shopify Advanced",High,"ecommerce, shopify, store","Sell products online with full cart and checkout","Product management, payment integration, mobile-friendly","Small to medium online stores",92,"A boutique needed a fully functional online store"
+https://edu-learn.com,Education,"React, Python, Django",Authentication/Login,Video Streaming,Quiz System,Online learning management platform,"React / Next.js Custom",Medium,"education, lms, e-learning","Deliver online courses with video and quizzes","Scalable architecture, interactive content, user management","Educational institutions and course creators",88,"A university wanted a custom LMS for online courses"
+https://health-plus.org,Healthcare,WordPress + Custom,Appointment Booking,Patient Portal,Responsive Design,Healthcare provider website,"WordPress + WooCommerce",High,"healthcare, medical, booking","Manage patient appointments and health info","HIPAA-ready, easy content updates, booking system","Medical practices and clinics",85,"A clinic needed online appointment booking"
+https://portfolio-dev.com,Portfolio,"HTML, CSS, JavaScript, GSAP",Animations,Responsive Design,Contact Form,Developer portfolio website,"Webflow",Medium,"portfolio, developer, freelance","Showcase development projects and skills","Custom animations, clean design, fast load times","Developers wanting a standout portfolio",78,"A developer needed a visually impressive portfolio"
+https://realty-pro.com,Real Estate,"WordPress, Elementor, MLS Integration",Property Search,Map Integration,Agent Profiles,Real estate listing website,"WordPress + WooCommerce",Low,"real estate, property, listings","List properties with search and agent profiles","MLS integration, property filtering, agent pages","Real estate agencies needing property listings",65,"A realty company needed property listing management"
