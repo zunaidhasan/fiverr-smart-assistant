@@ -1,0 +1,15 @@
+# Render Blueprint — deploys the FastAPI backend as a Docker web service
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: sardarit-portfolio-api
+    runtime: docker
+    repo: https://github.com/zunaidhasan/fiverr-smart-assistant
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "8000"
