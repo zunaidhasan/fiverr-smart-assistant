@@ -51,7 +51,13 @@ export default function App() {
       setProjectCount(status.project_count)
       setCategories(status.categories)
     } catch (err) {
-      setError('Could not connect to backend. Make sure the server is running.')
+      const apiBase = import.meta.env.VITE_API_URL || '/api'
+      setError(
+        `Could not connect to backend at ${apiBase}. ` +
+        (apiBase === '/api'
+          ? 'Set the VITE_API_URL environment variable to your backend URL (e.g. https://your-app.onrender.com).'
+          : 'Check that the backend is running and the URL is correct.')
+      )
     } finally {
       setLoading(false)
     }

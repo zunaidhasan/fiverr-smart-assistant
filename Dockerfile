@@ -16,4 +16,5 @@ COPY sample_data/ sample_data/
 EXPOSE 8000
 
 # PORT env is set by Render or defaults to 8000 in main.py
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT []
+CMD exec uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}

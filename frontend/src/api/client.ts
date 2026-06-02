@@ -1,12 +1,21 @@
-const API_BASE = '/api'
+// In dev, Vite proxies /api to localhost:8000.
+// In production (Vercel), set VITE_API_URL to the Render backend URL, e.g.:
+//   VITE_API_URL=https://sardarit-portfolio-api.onrender.com
+// In dev, Vite proxies /api to localhost:8000.
+// In production (Vercel), set VITE_API_URL to the Render backend URL, e.g.:
+//   VITE_API_URL=https://sardarit-portfolio-api.onrender.com
+const API_BASE = import.meta.env.VITE_API_URL || '/api'
 
 async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
+  const isFormData = options?.body instanceof FormData
+  const { headers: customHeaders, ...restOptions } = options || {}
+
   const res = await fetch(`${API_BASE}${endpoint}`, {
+    ...restOptions,
     headers: {
-      'Content-Type': 'application/json',
-      ...options?.headers,
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+      ...customHeaders,
     },
-    ...options,
   })
 
   if (!res.ok) {
@@ -39,7 +48,6 @@ export const uploadCsv = (file: File) => {
   }>('/csv/upload', {
     method: 'POST',
     body: formData,
-    headers: {},
   })
 }
 
