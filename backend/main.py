@@ -33,7 +33,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -45,7 +45,7 @@ csv_loaded = False
 DEFAULT_CSV = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "sample_data",
-    "sardarit_projects_database.csv",
+    "Enriched_Projects_Final.csv",
 )
 
 
@@ -94,10 +94,11 @@ async def upload_csv(file: UploadFile = File(...)):
     if not file.filename.endswith(".csv"):
         raise HTTPException(status_code=400, detail="Please upload a CSV file.")
 
+    import tempfile
     try:
         content = await file.read()
-        temp_path = "/tmp/uploaded_projects.csv"
-        with open(temp_path, "wb") as f:
+        fd, temp_path = tempfile.mkstemp(suffix=".csv")
+        with os.fdopen(fd, "wb") as f:
             f.write(content)
 
         projects, metadata = load_projects(temp_path)

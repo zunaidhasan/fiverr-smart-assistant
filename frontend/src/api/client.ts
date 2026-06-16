@@ -1,10 +1,8 @@
 // In dev, Vite proxies /api to localhost:8000.
 // In production (Vercel), set VITE_API_URL to the Render backend URL, e.g.:
 //   VITE_API_URL=https://sardarit-portfolio-api.onrender.com
-// In dev, Vite proxies /api to localhost:8000.
-// In production (Vercel), set VITE_API_URL to the Render backend URL, e.g.:
-//   VITE_API_URL=https://sardarit-portfolio-api.onrender.com
-const API_BASE = import.meta.env.VITE_API_URL || '/api'
+const VITE_API = import.meta.env.VITE_API_URL;
+const API_BASE = VITE_API ? (VITE_API.endsWith('/api') ? VITE_API : `${VITE_API.replace(/\/$/, '')}/api`) : '/api';
 
 async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
   const isFormData = options?.body instanceof FormData

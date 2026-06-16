@@ -199,7 +199,7 @@ class ProposalOptimizer:
         budget: Optional[float] = None,
     ) -> dict:
         """Generate proposal optimization recommendations."""
-        from .reply_generator import ReplyGenerator
+        from reply_generator import ReplyGenerator
 
         generator = ReplyGenerator(self.projects)
         return generator.generate_proposal_optimizer(client_brief, category, budget)
