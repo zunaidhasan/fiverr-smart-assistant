@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/api/client.ts","./src/components/crmview.tsx","./src/components/dashboard.tsx","./src/components/proposaloptimizer.tsx","./src/components/riskdetector.tsx","./src/components/similaritysearch.tsx","./src/components/smartreply.tsx"],"version":"5.9.3"}
